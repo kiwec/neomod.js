@@ -1,7 +1,32 @@
 import Module from './bin/neosu.js';
 
-const neosu = await Module();
+// Annoying, but we need to track if the module is 'alive'
+//
+// Because in the case the WASM module runs out of memory,
+// we can't even call delete(), we need to re-create a new module!
+//
+// Or else, we wouldn't be able to recover from an error caused
+// by a malicious map.
 
-// more stuff will be added to the "neosu" object later
+let alive = true;
+let module;
 
-export default neosu;
+async function init() {
+    module = await Module();
+    module.onAbort = () => { alive = false; };
+    alive = true;
+}
+
+// WASM classes/functions
+async function Beatmap(osu_bytes) {
+    if(!alive) await init();
+    return new module.Beatmap(osu_bytes);
+}
+
+
+// WASM constants
+await init();
+const PP_ALGORITHM_VERSION = module.PP_ALGORITHM_VERSION;
+
+
+export default {Beatmap, PP_ALGORITHM_VERSION};
