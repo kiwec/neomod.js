@@ -1,14 +1,14 @@
-import neosu from './index.js';
+import neomod from './index.js';
 
 
 async function test_pp_simple() {
-    console.log("pp version:", neosu.PP_ALGORITHM_VERSION);
+    console.log("pp version:", neomod.PP_ALGORITHM_VERSION);
 
     // https://osu.ppy.sh/scores/1641562531 (636pp)
     const res = await fetch('https://osu.ppy.sh/osu/3337690');
     const map_bytes = await res.bytes();
 
-    const beatmap = await neosu.Beatmap(map_bytes);
+    const beatmap = await neomod.Beatmap(map_bytes);
     try {
         const pp = beatmap.calculate({
             num300s: 3027,
@@ -29,7 +29,7 @@ async function test_pp_large() {
     const res = await fetch('https://osu.ppy.sh/osu/2573161');
     const map_bytes = await res.bytes();
 
-    const beatmap = await neosu.Beatmap(map_bytes);
+    const beatmap = await neomod.Beatmap(map_bytes);
     try {
         const pp = beatmap.calculate({
             num300s: 925,
@@ -40,7 +40,7 @@ async function test_pp_large() {
             comboMax: 1014,
             mods: {
                 speed: 1.5,
-                flags: neosu.ModFlags.Hidden | neosu.ModFlags.HardRock | neosu.ModFlags.Flashlight,
+                flags: neomod.ModFlags.Hidden | neomod.ModFlags.HardRock | neomod.ModFlags.Flashlight,
             }
         });
         console.log("pp:", pp);

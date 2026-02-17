@@ -1,29 +1,29 @@
-# neosu.js
+# neomod.js
 
-Experimental library to interact with the neosu server, and other neosu-related tooling.
+Experimental library to interact with the neomod server, and other neomod-related tooling.
 
 ### Installation
 
 ```
-npm install neosu
+npm install neomod
 ```
 
 ### pp
 
-Runs a WASM version of neosu's pp calculation code.
+Runs a WASM version of neomod's pp calculation code.
 
-See [the neosu repository](https://github.com/kiwec/neosu/tree/master/tools/neosu.js) if you want to build it from source.
+See [the neomod repository](https://github.com/kiwec/neomod/tree/master/tools/neomod.js) if you want to build it from source.
 
 ```js
-import neosu from 'neosu';
+import neomod from 'neomod';
 
-console.log("pp version:", neosu.PP_ALGORITHM_VERSION);
+console.log("pp version:", neomod.PP_ALGORITHM_VERSION);
 
 // https://osu.ppy.sh/scores/1641562531 (636pp)
 const res = await fetch('https://osu.ppy.sh/osu/3337690');
 const map_bytes = await res.bytes();
 
-const beatmap = await neosu.Beatmap(map_bytes);
+const beatmap = await neomod.Beatmap(map_bytes);
 try {
     // You must pass ALL these parameters or else you will get 0pp.
     const pp = beatmap.calculate({

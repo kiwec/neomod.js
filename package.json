@@ -1,5 +1,5 @@
 {
-  "name": "neosu",
+  "name": "neomod",
   "version": "2.0.1",
   "license": "GPL-3.0",
   "author": "kiwec",
@@ -7,6 +7,6 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kiwec/neosu.js.git"
+    "url": "git+https://github.com/kiwec/neomod.js.git"
   }
 }

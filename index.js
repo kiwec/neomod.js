@@ -1,4 +1,4 @@
-import createModule from './bin/neosu.js';
+import createModule from './bin/neomod.js';
 
 // Annoying, but we need to track if the module is 'alive'
 //
