@@ -4,7 +4,7 @@ import neomod from './index.js';
 async function test_pp_simple() {
     console.log("pp version:", neomod.PP_ALGORITHM_VERSION);
 
-    // https://osu.ppy.sh/scores/1641562531 (636pp)
+    // https://osu.ppy.sh/scores/1641562531 (695pp)
     const res = await fetch('https://osu.ppy.sh/osu/3337690');
     const map_bytes = await res.bytes();
 
