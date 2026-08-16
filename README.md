@@ -12,7 +12,7 @@ npm install neomod
 
 Runs a WASM version of neomod's pp calculation code.
 
-See [the neomod repository](https://github.com/kiwec/neomod/tree/master/tools/neomod.js) if you want to build it from source.
+See [the neomod repository](https://github.com/neomodnet/neomod/tree/master/tools/neomod.js) if you want to build it from source.
 
 ```js
 import neomod from 'neomod';
